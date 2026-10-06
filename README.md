@@ -11,7 +11,7 @@
 我做东西关注同一件事：**把底层原理摊开写清楚，并且证明它是对的。**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-7c5cff?style=for-the-badge&logo=googlechrome&logoColor=white)](https://wulier-arch.github.io/axon/)
-[![Latest Release](https://img.shields.io/badge/Release-v0.3.0-4ad6c8?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wulier-arch/axon/releases/tag/v0.3.0)
+[![Latest Release](https://img.shields.io/badge/Release-v0.3.1-4ad6c8?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wulier-arch/axon/releases/tag/v0.3.1)
 [![Star axon](https://img.shields.io/badge/Star_axon-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wulier-arch/axon)
 [![npm](https://img.shields.io/badge/npm-axon--net-cb3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/axon-net)
 
@@ -23,15 +23,17 @@
 
 | 依赖 | 测试 | 最新版本 | `matmul` 512×512 |
 | :---: | :---: | :---: | :---: |
-| **0** | 95 | **v0.3.0** | 2.36 GFLOP/s |
+| **0** | 114 | **v0.3.1** | 2.36 GFLOP/s |
 
 核心主张是**梯度可验证**：每个算子都自带有限差分对照，梯度错了立刻暴露，而不是「跑起来没报错就算对」。这个机制抓到过三个静默 bug——前向传播完全正确，只有数值梯度能发现权重在错误地训练。
 
 v0.3.0 补齐了 `LayerNorm`、`Embedding`、`MultiHeadAttention`、`TransformerBlock` 和 `GELU`。新增的梯度回归测试又抓到过一个只在 gamma 开启时出现的 LayerNorm 反向错误。
 
+v0.3.1 转向「让新人能自己跑起来」：浏览器示例、可直接运行的示例脚本、入门指南与框架对比，全部零安装可复现，测试数涨到 114。
+
 性能上坦白说比 TensorFlow.js 慢一个数量级，这是刻意的取舍：数据存在 `Float64Array` 里，但计算是标量 JS 循环，没有 WASM、没有 SIMD、没有算子融合。换来的是每一行都能读懂。**适合学习原理，不适合训 ResNet。**
 
-[在线 Demo](https://wulier-arch.github.io/axon/demo/) · [项目主页](https://wulier-arch.github.io/axon/) · [v0.3.0 Release](https://github.com/wulier-arch/axon/releases/tag/v0.3.0) · [源码](https://github.com/wulier-arch/axon) · [npm](https://www.npmjs.com/package/axon-net)
+[在线 Demo](https://wulier-arch.github.io/axon/demo/) · [项目主页](https://wulier-arch.github.io/axon/) · [v0.3.1 Release](https://github.com/wulier-arch/axon/releases/tag/v0.3.1) · [源码](https://github.com/wulier-arch/axon) · [npm](https://www.npmjs.com/package/axon-net)
 
 ### [rope-embedding](https://github.com/wulier-arch/rope-embedding) · 零依赖旋转位置编码
 
