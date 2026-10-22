@@ -34,6 +34,16 @@ v0.3.1 转向「让新人能自己跑起来」：浏览器示例、可直接运�
 
 [在线 Demo](https://wulier-arch.github.io/axon/demo/) · [项目主页](https://wulier-arch.github.io/axon/) · [v0.3.1 Release](https://github.com/wulier-arch/axon/releases/tag/v0.3.1) · [源码](https://github.com/wulier-arch/axon)
 
+### [ctxgauge](https://github.com/wulier-arch/ctxgauge) · 上下文体检
+
+2026 年做 agent，成本不在模型调用，而在塞进窗口的东西。这个工具只量**能算准**的三件事：多少内容是完全重复的（可证明）、多少是被改写过的近重复（5-gram Jaccard 算出来的）、以及那些「必须 / 不得」的硬约束落在了哪个位置——中段正是模型最容易忽略的地方。
+
+它明确不猜 token 数：没有对应模型的 tokenizer 就给数字是不负责任的。也不替你决定删哪一段。
+
+和 axon 是同一种做法：把黑盒摊开，只报能验证的部分。
+
+[在线试用](https://wulier-arch.github.io/ctxgauge/) · [源码](https://github.com/wulier-arch/ctxgauge)
+
 ### [rope-embedding](https://github.com/wulier-arch/rope-embedding) · 零依赖旋转位置编码
 
 axon 有 `MultiHeadAttention` 和 `TransformerBlock`，但一直没有位置编码——这个补上缺的那块。RoPE 出自 [RoFormer](https://arxiv.org/abs/2104.09864)，现在是开源大模型的默认选择。
