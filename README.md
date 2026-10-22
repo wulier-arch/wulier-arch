@@ -44,6 +44,20 @@ v0.3.1 转向「让新人能自己跑起来」：浏览器示例、可直接运�
 
 [在线试用](https://wulier-arch.github.io/ctxgauge/) · [源码](https://github.com/wulier-arch/ctxgauge)
 
+### [surfacecheck](https://github.com/wulier-arch/surfacecheck) · 攻击面体检
+
+2026 年 10 月 PingCAP 那起入侵，攻击方声称的入口不是 0day，而是仓库里躺着的云凭据。这个工具就是冲着这条链路做的：一条命令看三处——仓库里的明文凭据（**连 git 历史一起**）、线上 TLS 证书、HTTP 安全响应头。
+
+核心是那个「连历史一起」：只扫工作区等于给自己发一张假的安全证明，因为三年前那个已经删掉的 commit 依然在，`git clone` 一次就全拿到了。演示脚本会现场造一个「泄露过又被修好」的仓库，让你看到工作区干净、历史里还躺着三把 key 的差别。
+
+报告里的密钥是打码的——报告本身不能变成新的泄露源。不分级给「评分」，只有三档，每一档写清楚不修会怎样。
+
+| 依赖 | 测试 | 凭据规则 | Node |
+| :---: | :---: | :---: | :---: |
+| **0** | 96 | 14 条 | ≥ 20 |
+
+[在线试用](https://wulier-arch.github.io/surfacecheck/) · [源码](https://github.com/wulier-arch/surfacecheck)
+
 ### [rope-embedding](https://github.com/wulier-arch/rope-embedding) · 零依赖旋转位置编码
 
 axon 有 `MultiHeadAttention` 和 `TransformerBlock`，但一直没有位置编码——这个补上缺的那块。RoPE 出自 [RoFormer](https://arxiv.org/abs/2104.09864)，现在是开源大模型的默认选择。
