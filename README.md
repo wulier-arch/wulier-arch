@@ -90,9 +90,13 @@ axon 有 `MultiHeadAttention` 和 `TransformerBlock`，但一直没有位置编�
 
 ### [interstellar-courier](https://github.com/wulier-arch/interstellar-courier) · 星际快递员
 
-零依赖、零构建，打开浏览器就能玩的 Canvas 迷你太空躲避游戏。
+零依赖、零构建，打开浏览器就能玩的 Canvas 迷你太空躲避游戏。游戏逻辑拆成 `game-core.js` / `game-audio.js`，配 47 个零依赖单元测试（31 + 16）；CI 在 Node 20 / 24 / 26 三个版本上跑语法检查、项目自检与测试。
 
-[在线试玩](https://wulier-arch.github.io/interstellar-courier/)
+| 依赖 | 测试 | CI Node 矩阵 |
+| :---: | :---: | :---: |
+| **0** | 47 | 20 / 24 / 26 |
+
+[在线试玩](https://wulier-arch.github.io/interstellar-courier/) · [源码](https://github.com/wulier-arch/interstellar-courier)
 
 ## 技术栈
 
